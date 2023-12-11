@@ -1,21 +1,23 @@
 ## Usersテーブル
 
-|     Column         |Type       |Options        |
-|--------------------|-----------|---------------| 
-| username           | string    |  null: false  |
-| email              | string    |  null: false  |
-| encrypted_password | string    |  null: false  |
-| phonenumber        | integer   |  null: false  |
-| birthday           | integer   |  null: false  |
-| first-name         | string    |  null: false  |
-| last-name          | string    |  null: false  |
+|     Column         |Type       |Options                      |
+|--------------------|-----------|-----------------------------| 
+| username           | string    |  null: false                |
+| email              | string    |  null: false, unique :true  |
+| encrypted_password | string    |  null: false                |
+| birthday           | date      |  null: false                |  年月日はdate型推奨
+| first_name         | string    |  null: false                |
+| last_name          | string    |  null: false                |
+| first_name_kana    | string    |  null: false                |
+| last_name_kana     | string    |  null: false                |  -は使用不可
 
 
 ## Association
 
 - has_many :items
 - has_many :buys
-- has_many  :addresses
+- has_one  :address
+
 
 ## itemsテーブル
 
@@ -51,15 +53,11 @@
 
 ## address
 
-|     Column         |Type       |Options      |
-|--------------------|-----------|-------------| 
-| postalcode         | integer   | null: false |
-| prefecture         | string    | null: false |
-| city               | string    | null: false |
-| streetaddress      | string    | null: false |
-| buildingname       | string    |             |
-| phonenumber        | integer   | null: false |
-
-## Association
-
-- belongs_to :user
+|     Column         |Type       |Options                         |
+|--------------------|-----------|--------------------------------| 
+| postalcode         | string    | null: false                    | activehashで実装
+| prefecture         | string    | null: false                    | activehashで実装
+| city               | string    | null: false                    |
+| streetaddress      | string    | null: false, foreign_key: true |
+| buildingname       | string    |              foreign_key: true |
+| phonenumber        | string   | null: false,  foreign_key: true |
