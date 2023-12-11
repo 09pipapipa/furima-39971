@@ -55,8 +55,6 @@
 
 |     Column         |Type       |Options                         |
 |--------------------|-----------|--------------------------------| 
-| postalcode         | string    | null: false                    | activehashで実装
-| prefecture         | string    | null: false                    | activehashで実装
 | city               | string    | null: false                    |
 | streetaddress      | string    | null: false, foreign_key: true |
 | buildingname       | string    |              foreign_key: true |
