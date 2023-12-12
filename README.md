@@ -2,9 +2,9 @@
 
 |     Column         |Type       |Options                      |
 |--------------------|-----------|-----------------------------| 
-| username           | string    |  null: false  unique :true  |
+| username           | string    |  null: false                |
 | email              | string    |  null: false, unique :true  |
-| encrypted_password | string    |  null: false  unique :true  |
+| encrypted_password | string    |  null: false                |
 | birthday           | date      |  null: false                |  年月日はdate型推奨
 | first_name         | string    |  null: false                |
 | last_name          | string    |  null: false                |
@@ -26,11 +26,11 @@
 | goods_name         | string    | null: false                  |
 | price              | integer   | null: false                  |
 | exposition         | text      | null: false                  |  (説明)
-| category_id        | string    | null: false                  |
-| condition_id       | string    | null: false                  |  (状態)
+| category_id        | integer   | null: false                  |
+| condition_id       | integer   | null: false                  |  (状態)
 | cost_id            | integer   | null: false                  | (配送料)
 | region_id          | integer   | null: false                  | (地域)
-| days_id            | integer   | null: false                  | (日数)
+| delivery_date_id   | integer   | null: false                  | (日数)
 
 ## Association
 
@@ -48,15 +48,15 @@
 ## Association
 
 - belongs_to :user
-- belongs_to :item
-- has_one    :address
+- belongs_to :items
+- has_one    :addresses
 
 ## address
 
 |     Column         |Type       |Options                        |
 |-------------------|-----------|--------------------------------|
 | buy               | references| null: false,foreign_key: true  |
-| postal_code       | integer   | null: false                    |
+| postal_code       | string    | null: false                    |
 | prefecture_id     | string    | null: false                    |
 | city              | string    | null: false                    |
 | street_address    | string    | null: false                    |
