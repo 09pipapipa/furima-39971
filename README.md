@@ -29,7 +29,7 @@
 | category_id        | integer   | null: false                  |
 | condition_id       | integer   | null: false                  |  (状態)
 | cost_id            | integer   | null: false                  | (配送料)
-| region_id          | integer   | null: false                  | (地域)
+| prefecture_id      | integer   | null: false                  | (地域)
 | delivery_date_id   | integer   | null: false                  | (日数)
 
 ## Association
@@ -49,7 +49,7 @@
 
 - belongs_to :user
 - belongs_to :items
-- has_one    :addresses
+- has_one    :address
 
 ## address
 
