@@ -29,7 +29,7 @@
 | category_id        | integer   | null: false                  |
 | condition_id       | integer   | null: false                  |  (状態)
 | cost_id            | integer   | null: false                  | (配送料)
-| prefecture_id      | string    | null: false                  | (地域)
+| prefecture_id      | integer    | null: false                  | (地域)
 | delivery_date_id   | integer   | null: false                  | (日数)
 
 ## Association
@@ -57,7 +57,7 @@
 |-------------------|-----------|--------------------------------|
 | buy               | references| null: false,foreign_key: true  |
 | postal_code       | string    | null: false                    |
-| prefecture_id     | string    | null: false                    |
+| prefecture_id     | integer   | null: false                    |
 | city              | string    | null: false                    |
 | street_address    | string    | null: false                    |
 | building_name     | string    |                                |
