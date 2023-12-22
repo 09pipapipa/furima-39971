@@ -15,4 +15,9 @@ class ItemsController < ApplicationController
   end
 
   
+  private
+
+  def item_params
+    params.require(:image).permit(:content, :image).merge(user_id: current_user.id)
+  end
 end
