@@ -11,4 +11,5 @@ class Item < ApplicationRecord
   validates :cost_id,presence: true
   validates :prefecture_id,presence: true
   validates :delivery_date_id,presence: true
+  validates :image,presence: true
 end
