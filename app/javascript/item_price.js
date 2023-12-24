@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function item_price () {
+
   const priceInput = document.getElementById('item-price');
   const addTaxPrice = document.getElementById('add-tax-price');
   const profit = document.getElementById('profit');
@@ -13,3 +14,4 @@ document.addEventListener('DOMContentLoaded', function() {
     profit.textContent = profitValue.toLocaleString();
   });
 });
+window.addEventListener('load',item_price);
