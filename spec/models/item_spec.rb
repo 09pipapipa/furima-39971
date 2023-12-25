@@ -15,41 +15,41 @@ RSpec.describe Item, type: :model do
 
     context '商品新規登録ができない場合' do
       it 'goods_nameが空では登録できない' do
-        @item.goods_name = ''
+        @item.goods_name = nil
         @item.valid?
         expect(@item.errors[:goods_name]).to include("can't be blank")
       end
       it 'expositionが空では登録できない' do
-        @item.exposition = ''
+        @item.exposition = nil
         @item.valid?
         expect(@item.errors[:exposition]).to include("can't be blank")
       end
       it 'imageが空では登録できない' do
-        @item.image = ''
+        @item.image = nil
         @item.valid?
         expect(@item.errors[:image]).to include("can't be blank")
       end
-      it 'category_idは1以外でないと登録できない' do
-        @item.category_id = ''
+      it 'categoryは1以外でないと登録できない' do
+        @item.category_id = nil
         @item.valid?
         expect(@item.errors[:category_id]).to include('must be other than 1')
       end
-      it 'condition_idは1以外でないと登録できない' do
-        @item.condition_id = ''
+      it 'conditionは1以外でないと登録できない' do
+        @item.condition_id = nil
         @item.valid?
         expect(@item.errors[:condition_id]).to include('must be other than 1')
       end
-      it 'cost_idは1以外でないと登録できない' do
-        @item.cost_id = ''
+      it 'costは1以外でないと登録できない' do
+        @item.cost_id = nil
         @item.valid?
         expect(@item.errors[:cost_id]).to include('must be other than 1')
       end
-      it 'prefecture_idは1以外でないと登録できない' do
+      it 'prefectureは1以外でないと登録できない' do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors[:prefecture_id]).to include('must be other than 1')
       end
-      it 'delivery_date_idは1以外でないと登録できない' do
+      it 'delivery_dateは1以外でないと登録できない' do
         @item.delivery_date_id = 1
         @item.valid?
         expect(@item.errors[:delivery_date_id]).to include('must be other than 1')
