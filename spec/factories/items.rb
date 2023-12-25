@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :item do
+    association :user
+    
     goods_name        {'商品名'}
     price             { 500 }
     exposition        {'商品説明'}
