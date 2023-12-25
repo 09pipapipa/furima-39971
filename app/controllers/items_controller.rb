@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-
-  before_action :authenticate_user!, except:[:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.all
@@ -16,23 +15,20 @@ class ItemsController < ApplicationController
       @item.user.reload
       redirect_to root_path(@item)
     else
-      render :new,status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
-
-  
   private
 
   def item_params
-    params.require(:item).permit(:goods_name, :price, :exposition, :category_id, :condition_id, :cost_id, :prefecture_id, :delivery_date_id,:image).merge(user_id: current_user.id)
+    params.require(:item).permit(:goods_name, :price, :exposition, :category_id, :condition_id, :cost_id, :prefecture_id,
+                                 :delivery_date_id, :image).merge(user_id: current_user.id)
   end
 end
