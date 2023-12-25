@@ -2,7 +2,12 @@ class Item < ApplicationRecord
   # has_one   :buy
   has_one_attached :image
   belongs_to :user
-
+  belongs_to :category_id
+  belongs_to :condition_id
+  belongs_to :cost_id
+  belongs_to :prefecture_id
+  belongs_to :delivery_date_id
+  
   validates :goods_name, presence: true
   validates :price, presence: true,
                     numericality: { greater_than: 0, only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
