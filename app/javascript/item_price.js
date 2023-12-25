@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function item_price () {
+const price = () => {
 
   const priceInput = document.getElementById('item-price');
   const addTaxPrice = document.getElementById('add-tax-price');
@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', function item_price () {
     const profitValue = price - tax;
     profit.textContent = profitValue.toLocaleString();
   });
-});
-window.addEventListener('load',item_price);
+};
+window.addEventListener('turbo:load',price);
