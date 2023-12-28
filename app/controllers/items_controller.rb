@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     if current_user
-      redirect_to root_path unless @item.user == current_user
+      redirect_to root_path unless @item.user.id == current_user.id
     else
       redirect_to login_path
     end
@@ -36,9 +36,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to item_path
+      redirect_to item_path(@item)
     else
-      render :edit,status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:goods_name, :price, :exposition, :category_id, :condition_id, :cost_id, :prefecture_id,
                                  :delivery_date_id, :image).merge(user_id: current_user.id)
   end
+  
 
   def move_to_index
     unless user_signed_in?
