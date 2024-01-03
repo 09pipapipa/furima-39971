@@ -34,10 +34,10 @@
 
 ## Association
 
-- has_one   :buy
+- has_one   :order
 - belongs_to :user
 
-## buysテーブル
+## ordersテーブル
 
 |   Column |    Type      |    Options                    |
 |----------|--------------|-------------------------------| 
@@ -65,4 +65,4 @@
 
 ## Association
 
-- belongs_to :buy
+- belongs_to :order
