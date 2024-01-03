@@ -4,6 +4,6 @@ class Order < ApplicationRecord
   belongs_to :item
   has_one    :address
   
-  validates :item, presences: true
-  validates :user, presences: true
+  validates :item, presence: true
+  validates :user, presence: true
 end
