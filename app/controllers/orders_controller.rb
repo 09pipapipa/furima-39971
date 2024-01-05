@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @order = Order.new
     @item = Item.find(params[:item_id])
+    @order_address = OrderAddress.new
   end
   
 
@@ -21,7 +22,7 @@ class OrdersController < ApplicationController
       redirect_to root_path
     else
       gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
 
   end
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: order_params[:item];
+      amount: @item.price,
       card: order_params[:token],
       currency: 'jpy'
     )
