@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :purchase,only:[:index,:create]
   before_action :check_login, only: [:index]
+  before_action :login_user, only:[:index]
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
@@ -50,6 +51,12 @@ class OrdersController < ApplicationController
   def check_login
     unless user_signed_in?
       redirect_to new_user_session_path
+    end
+  end
+
+  def login_user
+    if current_user == @item.user
+      redirect_to root_path 
     end
   end
 
