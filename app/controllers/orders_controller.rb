@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :purchase,only:[:index,:create]
+  before_action :check_login, only: [:index]
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @order = Order.new
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
   
@@ -14,7 +15,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if  @order_address.valid?
       pay_item
@@ -41,6 +41,16 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def purchase
+    @item = Item.find(params[:item_id])
+  end
+
+  def check_login
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
 end
