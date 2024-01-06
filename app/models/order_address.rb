@@ -9,7 +9,7 @@ class OrderAddress
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "Enter only half-width numerals with 10 to 11 digits" }
     validates :item_id
     validates :user_id
-    validates :building_name
+    validates :city
     validates :token
   end
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
