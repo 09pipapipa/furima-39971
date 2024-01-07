@@ -15,7 +15,7 @@
 ## Association
 
 - has_many :items
-- has_many :buys
+- has_many :orders
 
 
 ## itemsテーブル
@@ -34,10 +34,10 @@
 
 ## Association
 
-- has_one   :buy
+- has_one   :order
 - belongs_to :user
 
-## buysテーブル
+## ordersテーブル
 
 |   Column |    Type      |    Options                    |
 |----------|--------------|-------------------------------| 
@@ -55,7 +55,7 @@
 
 |     Column         |Type       |Options                        |
 |-------------------|-----------|--------------------------------|
-| buy               | references| null: false,foreign_key: true  |
+| order             | references| null: false,foreign_key: true  |
 | postal_code       | string    | null: false                    |
 | prefecture_id     | integer   | null: false                    |
 | city              | string    | null: false                    |
@@ -65,4 +65,4 @@
 
 ## Association
 
-- belongs_to :buy
+- belongs_to :order
