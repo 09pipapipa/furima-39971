@@ -74,7 +74,7 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
       end
-      if 'phone_numberは12桁以上では購入できない' do
+      it 'phone_numberは12桁以上では購入できない' do
         @order_address.phone_number = "090123456789"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
