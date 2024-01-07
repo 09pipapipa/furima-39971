@@ -40,37 +40,42 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'cityが空だと購入できない' do
-        @order.address.city = ''
+        @order_address.city = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("City can't be blank")
       end
       it 'street_addressが空では購入できない' do
-        @order.address.street_address = ''
+        @order_address.street_address = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Street Address can't be blank")
+        expect(@order_address.errors.full_messages).to include("Street address can't be blank")
+      end
+      it 'phone_number空では購入できない' do
+        @order_address.phone_number = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberは全角数字では購入できない' do
-        @order.address.phone_number = "０９０９９９９８８８８"
+        @order_address.phone_number = "０９０９９９９８８８８"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
       end
-      it 'phone_numberは11桁未満では購入できない' do
-        @order.address.phone_number = "0909999888"
+      it 'phone_numberは9桁以下だと購入できない' do
+        @order_address.phone_number = "090999888"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
       end
       it 'phone_numberは全角英字では購入できない' do
-        @order.address.phone_number = "ａｂｃｅｆｇｈｉｊｋｌ"
+        @order_address.phone_number = "ａｂｃｅｆｇｈｉｊｋｌ"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
       end
       it 'phone_numberは半角英字では購入できない' do
-        @order.address.phone_number = "abcdefghijkl"
+        @order_address.phone_number = "abcdefghijkl"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Enter only half-width numerals with 10 to 11 digits')
       end
       it 'tokenが空では購入できない' do
-        @order.address.token = ''
+        @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
