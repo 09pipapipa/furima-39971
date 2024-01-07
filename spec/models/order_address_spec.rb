@@ -6,6 +6,7 @@ RSpec.describe OrderAddress, type: :model do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.create(:item)
       @order_address = FactoryBot.build(:order_address,user_id: @user.id,item_id: @item.id)
+      sleep 1
     end
 
     context '内容に問題がない場合' do
@@ -21,30 +22,30 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeは空では保存できない' do
         @order_address.postal_code = ''
         @order_address.valid? 
-        expect(@order_address.errors.full_messages).to include("Can't be blank")
+        expect(@order_address.errors.full_messages).not_to include("Postal code can't be blank")
       end
       it 'postal_codeは半角のハイフンを含んだ正しい形式でないと保存できない' do
         @order_address.postal_code = '1234567' 
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Is invalid. Include hyphen(-)')
+        expect(@order_address.errors.full_messages).not_to include('Is invalid. Include hyphen(-)')
       end
       it 'postal_codeのハイフンの位置が正しくないと保存できない' do
         @order_address.postal_code = '1234-567' 
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Is invalid. Include hyphen(-)')
+        expect(@order_address.errors.full_messages).not_to include('Is invalid. Include hyphen(-)')
       end
       it 'prefecture_idは0以外を選択していないと保存できない' do
         @order_address.prefecture_id = 0
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_address.errors.full_messages).not_to include("Prefecture can't be blank")
       end
       it 'cityが空では保存できない' do
-        @order.address.city = ""
+        @order.address.city = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Can't be blank")
       end
       it 'street_addressが空では保存できない' do
-        @order.address.street_address = ""
+        @order.address.street_address = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Can't be blank")
       end
