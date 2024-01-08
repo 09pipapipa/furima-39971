@@ -1,17 +1,14 @@
-const price = () => {
+window.addEventListener('turbo:load', () => {
 
   const priceInput = document.getElementById('item-price');
-  const addTaxPrice = document.getElementById('add-tax-price');
-  const profit = document.getElementById('profit');
 
-  priceInput.addEventListener('input', function() {
-    const price = parseInt(priceInput.value, 10) || 0;
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
 
-    const tax = Math.floor(price * 0.1);
-    addTaxPrice.textContent = tax.toLocaleString();
+    const addTaxDom = document.getElementById('add-tax-price');
+    addTaxDom.innerHTML = Math.floor(priceInput.value * 0.1);
 
-    const profitValue = price - tax;
-    profit.textContent = profitValue.toLocaleString();
-  });
-};
-window.addEventListener('turbo:load',price);
+    const addProfitDom = document.getElementById('profit');
+    addProfitDom.innerHTML = Math.floor(priceInput.value - Math.floor(priceInput.value * 0.1))
+  })
+});
