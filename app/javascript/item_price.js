@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+function price(){
 
   const priceInput = document.getElementById('item-price');
 
@@ -10,4 +10,5 @@ window.addEventListener('load', () => {
     const addProfitDom = document.getElementById('profit');
     addProfitDom.innerHTML = Math.floor(priceInput.value - Math.floor(priceInput.value * 0.1))
   })
-});
+};
+window.addEventListener('turbo:load', price ) 
