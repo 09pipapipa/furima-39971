@@ -16,8 +16,8 @@ class Item < ApplicationRecord
   validates :exposition,    presence: true
   validates :image,         presence: true
   validates :category_id,      presence: true, numericality: { other_than: 1, message: "を入力してください" }
-  validates :condition_id,     presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :cost_id,          presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id,    presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :delivery_date_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :condition_id,     presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :cost_id,          presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :prefecture_id,    presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :delivery_date_id, presence: true, numericality: { other_than: 1, message: "を入力してください" }
 end
