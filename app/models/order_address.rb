@@ -4,9 +4,9 @@ class OrderAddress
   attr_accessor :postal_code, :prefecture_id, :city, :street_address, :building_name, :phone_number,:item_id, :user_id, :token
 
   with_options presence: true do
-    validates :prefecture_id,    numericality: {other_than: 1, message: "can't be blank"}
-    validates :postal_code,      format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)" }
-    validates :phone_number,     format: { with: /\A\d{10,11}\z/, message: "Enter only half-width numerals with 10 to 11 digits" }
+    validates :prefecture_id,    numericality: {other_than: 1, message: "を入力してください"}
+    validates :postal_code,      format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフンを(-)入力してください" }
+    validates :phone_number,     format: { with: /\A\d{10,11}\z/, message: "は10桁から11桁の半角数字のみを入力してください" }
     validates :street_address
     validates :item_id
     validates :user_id
