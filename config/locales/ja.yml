@@ -8,7 +8,7 @@ ja:
         first_name:      苗字
         last_name:       名前
         first_name_kana: 苗字(カナ)
-        last_name_kana:  (カナ)
+        last_name_kana:  名前(カナ)
       item:
         goods_name:       商品名
         price:            販売価格
