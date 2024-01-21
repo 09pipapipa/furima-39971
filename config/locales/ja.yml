@@ -10,10 +10,10 @@ ja:
         first_name_kana: 苗字(カナ)
         last_name_kana:  名前(カナ)
       item:
-        goods_name:       商品名
-        price:            販売価格
-        exposition:       商品の説明欄
-        image:            商品画像
+        goods_name:       商品名を入力してください
+        price:            販売価格を入力してください
+        exposition:       商品の説明欄を入力してください
+        image:            商品画像を入力してください
         category_id:      カテゴリー
         condition_id:     商品の状態
         cost_id:          配送料

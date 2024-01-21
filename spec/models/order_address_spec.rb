@@ -22,7 +22,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeは空では購入できない' do
         @order_address.postal_code = ''
         @order_address.valid? 
-        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_address.errors.full_messages).to include("postal_codeを入力してください")
       end
       it 'postal_codeは半角のハイフンを含んだ正しい形式でないと保存できない' do
         @order_address.postal_code = '1234567' 
