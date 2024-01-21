@@ -1,6 +1,5 @@
 ja: 
   activerecord:
-    attributes:
       errors:
         models:
           item:
@@ -9,7 +8,7 @@ ja:
               price: 販売価格を入力してください           
               exposition: 商品の説明欄を入力してください      
               image: 商品画像を入力してください           
-                
+    attributes:
       user:
         password:        パスワード
         nickname:        ニックネーム
