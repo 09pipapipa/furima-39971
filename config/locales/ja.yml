@@ -5,14 +5,11 @@ ja:
         models:
           item:
             attributes:
-              goods_name:
-                blank: 商品名が空白です
-              price:            
-                blank: 販売価格を入力してください
-              exposition:       
-                blank: 商品の説明欄を入力してください
-              image:            
-                blank: 商品画像を入力してください
+              goods_name: 商品名が空白です
+              price: 販売価格を入力してください           
+              exposition: 商品の説明欄を入力してください      
+              image: 商品画像を入力してください           
+                
       user:
         password:        パスワード
         nickname:        ニックネーム
