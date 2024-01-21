@@ -1,6 +1,18 @@
 ja: 
   activerecord:
     attributes:
+      errors:
+        models:
+          item:
+            attributes:
+              goods_name:
+                blank: 商品名が空白です
+              price:            
+                blank: 販売価格を入力してください
+              exposition:       
+                blank: 商品の説明欄を入力してください
+              image:            
+                blank: 商品画像を入力してください
       user:
         password:        パスワード
         nickname:        ニックネーム
@@ -10,15 +22,12 @@ ja:
         first_name_kana: 苗字(カナ)
         last_name_kana:  名前(カナ)
       item:
-        goods_name:       商品名を入力してください
-        price:            販売価格を入力してください
-        exposition:       商品の説明欄を入力してください
-        image:            商品画像を入力してください
         category_id:      カテゴリー
         condition_id:     商品の状態
         cost_id:          配送料
         prefecture_id:    発送元の地域
         delivery_date_id: 発送までの日数
+      
 
   activemodel:
     attributes:
